@@ -32,6 +32,7 @@ Initial encoding is a pattern whereby we define EDSLs by their syntax. In Rust w
 
 ## Ideas for future exercises
 
+- Motivate the expression problem a bit more
 - Church-encodings
 - Catamorphisms / Recursion-schemes(?)
 - Type-state pattern
