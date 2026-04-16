@@ -4,8 +4,7 @@ Advanced functional and type-level programming exercises in Rust.
 
 | Content |
 | --- |
-| Initial Encoding |
-| Tagless Final |
+| Initial Encoding, Tagless Final |
 
 **Task**: Run tests and pass them.
 
@@ -15,7 +14,12 @@ cargo test
 
 ## Initial and Final Encodings
 
-Start with the initial encodings and then proceed onto the tagless final exercises.
+It makes most sense to proceed in the following order: 
+
+1. `initial_encoding_01.rs`
+2. `initial_encoding_02.rs`
+3. `tagless_final_01.rs`
+4. `tagless_final_02.rs`
 
 ### Overview
 
