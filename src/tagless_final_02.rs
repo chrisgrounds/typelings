@@ -80,16 +80,25 @@ mod test {
 
   #[test]
   fn test_can_mul() {
-    assert_eq!(9, Eval::mul(3, 3))
+    assert_eq!(Eval::val(9), Eval::mul(Eval::val(3), Eval::val(3)))
   }
 
   #[test]
   fn test_can_mul_and_add_and_sub() {
-    assert_eq!(18, Eval::mul(3, Eval::add(10, Eval::sub(3, 1))))
+    assert_eq!(
+      Eval::val(18),
+      Eval::mul(
+        Eval::val(3),
+        Eval::add(Eval::val(10), Eval::sub(Eval::val(3), Eval::val(1)))
+      )
+    )
   }
 
   #[test]
   fn test_can_pretty_print() {
-    assert_eq!("3 * 3", PrettyPrint::mul(3, 3))
+    assert_eq!(
+      "3 * 3",
+      PrettyPrint::mul(PrettyPrint::val(3), PrettyPrint::val(3))
+    )
   }
 }

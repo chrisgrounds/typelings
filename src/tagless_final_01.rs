@@ -64,16 +64,25 @@ mod test {
 
   #[test]
   fn test_can_add() {
-    assert_eq!(6, Eval::add(1, Eval::add(2, 3)))
+    assert_eq!(
+      Eval::val(6),
+      Eval::add(Eval::val(1), Eval::add(Eval::val(2), Eval::val(3)))
+    )
   }
 
   #[test]
   fn test_can_sub() {
-    assert_eq!(3, Eval::sub(6, Eval::sub(2, 1)))
+    assert_eq!(
+      Eval::val(3),
+      Eval::sub(Eval::val(6), Eval::sub(Eval::val(2), Eval::val(1)))
+    )
   }
 
   #[test]
   fn test_can_pretty_print() {
-    assert_eq!("1 + 2", PrettyPrint::add(1, 2))
+    assert_eq!(
+      "1 + 2",
+      PrettyPrint::add(PrettyPrint::val(1), PrettyPrint::val(2))
+    )
   }
 }
