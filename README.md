@@ -1,6 +1,11 @@
 # Typelings
 
-Advanced type-level programming exercises in Rust.
+Advanced functional and type-level programming exercises in Rust.
+
+| Content |
+| --- |
+| Initial Encoding |
+| Tagless Final |
 
 **Task**: Run tests and pass them.
 
