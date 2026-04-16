@@ -1,4 +1,3 @@
-pub use crate::tagless_final_01::{Calculator, Eval, PrettyPrint};
 // In our intial encoding example, we have to modify our AST if we want to extend it,
 // so it is not as "open" as it could be. For example, if we want to add a new variant "Multiply"
 // to our AST, then every function "eval", "pretty-print", etc will break.
@@ -17,6 +16,7 @@ pub use crate::tagless_final_01::{Calculator, Eval, PrettyPrint};
 //
 // Overall, initial encoding makes it easy to add new interpreters,
 // but expensive to add new language variants; whereas, final/tagless inverts that.
+pub use crate::tagless_final_01::{Calculator, Eval, PrettyPrint};
 
 trait MulCalculator: Calculator {
   fn mul(a: Self::Repr, b: Self::Repr) -> Self::Repr;
