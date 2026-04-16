@@ -61,12 +61,42 @@ mod test {
   }
 
   #[test]
-  fn test_can_pretty_print() {
+  fn test_can_pretty_print_val() {
+    assert_eq!("1", pretty_print(Calculator::Value(1)))
+  }
+
+  #[test]
+  fn test_can_pretty_print_add() {
     assert_eq!(
       "1 + 1",
       pretty_print(Calculator::Add(
         Box::new(Calculator::Value(1)),
         Box::new(Calculator::Value(1))
+      ))
+    )
+  }
+
+  #[test]
+  fn test_can_pretty_print_sub() {
+    assert_eq!(
+      "1 - 1",
+      pretty_print(Calculator::Sub(
+        Box::new(Calculator::Value(1)),
+        Box::new(Calculator::Value(1))
+      ))
+    )
+  }
+
+  #[test]
+  fn test_can_pretty_print_combinations() {
+    assert_eq!(
+      "1 - 2 + 3",
+      pretty_print(Calculator::Sub(
+        Box::new(Calculator::Value(1)),
+        Box::new(Calculator::Add(
+          Box::new(Calculator::Value(2)),
+          Box::new(Calculator::Value(3))
+        ))
       ))
     )
   }
