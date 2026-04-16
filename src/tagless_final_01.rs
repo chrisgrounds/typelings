@@ -17,7 +17,7 @@
 // Overall, initial encoding makes it easy to add new interpreters,
 // but expensive to add new language variants; whereas, final/tagless inverts that.
 
-trait Calculator {
+pub trait Calculator {
   type Repr;
 
   fn val(v: i32) -> Self::Repr;
@@ -25,9 +25,9 @@ trait Calculator {
   fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr;
 }
 
-struct Eval;
+pub struct Eval;
 
-struct PrettyPrint;
+pub struct PrettyPrint;
 
 impl Calculator for Eval {
   type Repr;

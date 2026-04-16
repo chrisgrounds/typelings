@@ -1,3 +1,4 @@
+pub use crate::tagless_final_01::{Calculator, Eval, PrettyPrint};
 // In our intial encoding example, we have to modify our AST if we want to extend it,
 // so it is not as "open" as it could be. For example, if we want to add a new variant "Multiply"
 // to our AST, then every function "eval", "pretty-print", etc will break.
@@ -19,50 +20,6 @@
 
 trait MulCalculator: Calculator {
   fn mul(a: Self::Repr, b: Self::Repr) -> Self::Repr;
-}
-
-trait Calculator {
-  type Repr;
-
-  fn val(v: i32) -> Self::Repr;
-  fn add(a: Self::Repr, b: Self::Repr) -> Self::Repr;
-  fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr;
-}
-
-struct Eval;
-
-struct PrettyPrint;
-
-impl Calculator for Eval {
-  type Repr;
-
-  fn val(v: i32) -> Self::Repr {
-    todo!()
-  }
-
-  fn add(a: Self::Repr, b: Self::Repr) -> Self::Repr {
-    todo!()
-  }
-
-  fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr {
-    todo!()
-  }
-}
-
-impl Calculator for PrettyPrint {
-  type Repr;
-
-  fn val(v: i32) -> Self::Repr {
-    todo!()
-  }
-
-  fn add(a: Self::Repr, b: Self::Repr) -> Self::Repr {
-    todo!()
-  }
-
-  fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr {
-    todo!()
-  }
 }
 
 impl MulCalculator for Eval {

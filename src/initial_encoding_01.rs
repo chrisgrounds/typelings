@@ -9,6 +9,7 @@
 // We will define this DSL as an "initial-encoding".
 // An initial-encoding represents data as a data-type/AST
 // and adds on operations in the form of functions
+//
 // It is "initial" because we define the EDSL by its syntax
 // It is "encoding" because each option is encoded as a type
 
