@@ -12,7 +12,7 @@
 // So instead of writing functions for an AST, we create "interpreters" of a trait
 //
 // It's called "tagless" because there are no AST "tags" like `Add` or `Val`
-// It's called "final" because we define the EDSL by its semantics (i.e. by its interpretation)
+// It's called "final" because we define the eDSL by its semantics (i.e. by its interpretation)
 //
 // Overall, initial encoding makes it easy to add new interpreters,
 // but expensive to add new language variants; whereas, final/tagless inverts that.

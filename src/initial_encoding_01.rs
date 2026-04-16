@@ -2,7 +2,7 @@
 // This is a DSL that doesn't require it's own parser/type-checking
 // as it is embedded in the langauge it's written in.
 //
-// We will want to perform multiple different actions on this EDSL
+// We will want to perform multiple different actions on this eDSL
 // such as performing calculations via `eval`, pretty-printing out the calculation,
 // printing out the result, etc
 //
@@ -10,7 +10,7 @@
 // An initial-encoding represents data as syntax (i.e. a data-type/AST)
 // and adds on operations in the form of functions (i.e. interpretations of the syntax )
 //
-// It is "initial" because we define the EDSL by its syntax
+// It is "initial" because we define the eDSL by its syntax
 // It is "encoding" because each option is encoded as a type
 
 #[derive(PartialEq, Eq, Debug)]

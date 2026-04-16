@@ -23,7 +23,7 @@ It makes most sense to proceed in the following order:
 
 ### Overview
 
-Initial encoding is a pattern whereby we define EDSLs by their syntax. In Rust we can do that with enums/sum types. Tagless final is a pattern whereby we define EDSLs by their semantics (i.e. trait interfaces) and leave them "tagless" as they have no syntactic "tag" associated with them. Tagless final is an attempt to solve the "expression problem" and satisfy the Open-Closed Principle. There are advantages and disadvantages of both patterns, which hopefully become clear through the exercises.
+Initial encoding is a pattern whereby we define eDSLs by their syntax. In Rust we can do that with enums/sum types. Tagless final is a pattern whereby we define eDSLs by their semantics (i.e. trait interfaces) and leave them "tagless" as they have no syntactic "tag" associated with them. Tagless final is an attempt to solve the "expression problem" and satisfy the Open-Closed Principle. There are advantages and disadvantages of both patterns, which hopefully become clear through the exercises.
 
 #### References
 
