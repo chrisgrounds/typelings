@@ -12,7 +12,10 @@
 // So instead of writing functions for an AST, we create "interpreters" of a trait
 //
 // It's called "tagless" because there are no AST "tags" like `Add` or `Val`
-// It's called "final" because reasons
+// It's called "final" because we define the EDSL by its semantics/interface of interpreters
+//
+// Overall, initial encoding makes it easy to add new interpreters,
+// but expensive to add new language variants; whereas, final/tagless inverts that.
 
 trait MulCalculator: Calculator {
   fn mul(a: Self::Repr, b: Self::Repr) -> Self::Repr;
@@ -33,7 +36,7 @@ struct PrettyPrint;
 impl Calculator for Eval {
   type Repr;
 
-  fn val(v: i32) -> Self {
+  fn val(v: i32) -> Self::Repr {
     todo!()
   }
 
@@ -49,7 +52,7 @@ impl Calculator for Eval {
 impl Calculator for PrettyPrint {
   type Repr;
 
-  fn val(v: i32) -> Self {
+  fn val(v: i32) -> Self::Repr {
     todo!()
   }
 
@@ -86,7 +89,7 @@ mod test {
   #[test]
   fn test_can_mul_and_add_and_sub() {
     assert_eq!(
-      Eval::val(18),
+      Eval::val(36),
       Eval::mul(
         Eval::val(3),
         Eval::add(Eval::val(10), Eval::sub(Eval::val(3), Eval::val(1)))

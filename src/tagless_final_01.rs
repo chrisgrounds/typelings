@@ -12,7 +12,10 @@
 // So instead of writing functions for an AST, we create "interpreters" of a trait
 //
 // It's called "tagless" because there are no AST "tags" like `Add` or `Val`
-// It's called "final" because reasons
+// It's called "final" because we define the EDSL by its semantics/interface of interpreters
+//
+// Overall, initial encoding makes it easy to add new interpreters,
+// but expensive to add new language variants; whereas, final/tagless inverts that.
 
 trait Calculator {
   type Repr;
@@ -29,7 +32,7 @@ struct PrettyPrint;
 impl Calculator for Eval {
   type Repr;
 
-  fn val(v: i32) -> Self {
+  fn val(v: i32) -> Self::Repr {
     todo!()
   }
 
@@ -45,7 +48,7 @@ impl Calculator for Eval {
 impl Calculator for PrettyPrint {
   type Repr;
 
-  fn val(v: i32) -> Self {
+  fn val(v: i32) -> Self::Repr {
     todo!()
   }
 
@@ -58,9 +61,13 @@ impl Calculator for PrettyPrint {
   }
 }
 
+fn add_10_and_10<C: Calculator>() -> C::Repr {
+  C::add(C::val(10), C::val(10))
+}
+
 #[cfg(test)]
 mod test {
-  use crate::tagless_final_01::{Calculator, Eval, PrettyPrint};
+  use crate::tagless_final_01::{Calculator, Eval, PrettyPrint, add_10_and_10};
 
   #[test]
   fn test_can_add() {
@@ -73,9 +80,19 @@ mod test {
   #[test]
   fn test_can_sub() {
     assert_eq!(
-      Eval::val(3),
+      Eval::val(5),
       Eval::sub(Eval::val(6), Eval::sub(Eval::val(2), Eval::val(1)))
     )
+  }
+
+  #[test]
+  fn test_can_be_polymorphic_eval() {
+    assert_eq!(Eval::val(20), add_10_and_10::<Eval>())
+  }
+
+  #[test]
+  fn test_can_be_polymorphic_pretty() {
+    assert_eq!("10 + 10", add_10_and_10::<PrettyPrint>())
   }
 
   #[test]

@@ -10,8 +10,9 @@
 // An initial-encoding represents data as a data-type/AST
 // and adds on operations in the form of functions
 //
-// It's called "initial" because
+// It is "initial" because we define the EDSL by its syntax
 // It's called "encoding" because each option is encoded as a type
+
 #[derive(PartialEq, Eq, Debug)]
 enum Calculator {
   Value(i32),
