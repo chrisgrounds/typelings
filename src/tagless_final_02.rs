@@ -21,7 +21,7 @@ trait MulCalculator: Calculator {
 trait Calculator {
   type Repr;
 
-  fn val(v: i32) -> Self;
+  fn val(v: i32) -> Self::Repr;
   fn add(a: Self::Repr, b: Self::Repr) -> Self::Repr;
   fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr;
 }
@@ -76,11 +76,16 @@ impl MulCalculator for PrettyPrint {
 
 #[cfg(test)]
 mod test {
-  use crate::tagless_final_02::{Eval, MulCalculator, PrettyPrint};
+  use crate::tagless_final_02::{Calculator, Eval, MulCalculator, PrettyPrint};
 
   #[test]
   fn test_can_mul() {
     assert_eq!(9, Eval::mul(3, 3))
+  }
+
+  #[test]
+  fn test_can_mul_and_add_and_sub() {
+    assert_eq!(18, Eval::mul(3, Eval::add(10, Eval::sub(3, 1))))
   }
 
   #[test]

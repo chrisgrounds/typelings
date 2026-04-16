@@ -17,7 +17,7 @@
 trait Calculator {
   type Repr;
 
-  fn val(v: i32) -> Self;
+  fn val(v: i32) -> Self::Repr;
   fn add(a: Self::Repr, b: Self::Repr) -> Self::Repr;
   fn sub(a: Self::Repr, b: Self::Repr) -> Self::Repr;
 }
@@ -67,10 +67,12 @@ mod test {
     assert_eq!(6, Eval::add(1, Eval::add(2, 3)))
   }
 
+  #[test]
   fn test_can_sub() {
     assert_eq!(3, Eval::sub(6, Eval::sub(2, 1)))
   }
 
+  #[test]
   fn test_can_pretty_print() {
     assert_eq!("1 + 2", PrettyPrint::add(1, 2))
   }

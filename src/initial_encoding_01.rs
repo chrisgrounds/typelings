@@ -59,6 +59,7 @@ mod test {
     );
   }
 
+  #[test]
   fn test_can_pretty_print() {
     assert_eq!(
       "1 + 1",
