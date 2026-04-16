@@ -30,7 +30,7 @@ pub struct Eval;
 pub struct PrettyPrint;
 
 impl Calculator for Eval {
-  type Repr;
+  type Repr = i32;
 
   fn val(v: i32) -> Self::Repr {
     todo!()
@@ -46,7 +46,7 @@ impl Calculator for Eval {
 }
 
 impl Calculator for PrettyPrint {
-  type Repr;
+  type Repr = String;
 
   fn val(v: i32) -> Self::Repr {
     todo!()
