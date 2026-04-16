@@ -62,7 +62,7 @@ impl Calculator for PrettyPrint {
 }
 
 fn add_10_and_10<C: Calculator>() -> C::Repr {
-  C::add(C::val(10), C::val(10))
+  todo!()
 }
 
 #[cfg(test)]
