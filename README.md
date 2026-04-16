@@ -29,3 +29,8 @@ Initial encoding is a pattern whereby we define EDSLs by their syntax. In Rust w
 
 - [Tagless Final, Partially Evaluated](https://okmij.org/ftp/tagless-final/JFP.pdf)
 - [Initial and Final Encodings](https://peddie.github.io/encodings/encodings-text.html)
+
+## Ideas for future exercises
+
+- Church-encodings
+- Catamorphisms / Recursion-schemes?
